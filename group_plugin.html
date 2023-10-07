@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Creation Screen</title>
+    <style>
+        /* Place this code before @media screen and (max-width: 1250px){}  */
+        .group_tooltip{
+            transform: translateX(0);
+            position: absolute;
+            top: 0;
+            right: 140%;
+            z-index: 1000;
+            visibility: hidden;
+            width: 100px;
+            opacity: 1.0 !important;
+            background-color: #2e3192 !important;
+        }
+        .group_tooltip::before{
+            left: 97% !important;
+        }
+        .top_icon_box:hover .hover_tooltip.group_tooltip{   
+            visibility: visible;
+        }
+        .modal-dialog{
+            width: 800px;
+            height: 75% !important;
+            margin: 13vh auto;
+            max-width: 1200px;
+        }
+        .contact_list{
+            overflow: hidden;
+            overflow-y: scroll;
+            border-right: 1px solid #eee;
+        }
+        .search_field.model_search{
+            background-color: #eee;
+            width: 95%;
+            padding-inline: 15px;
+        }
+        .contact_row{
+            padding-top: 20px;
+            margin-block: 10px;
+            justify-content: center;
+        }
+        .group_contact{
+            display: flex;
+            align-items: center;
+            padding-block: 5px;
+            border-radius: 5px;
+            width: 90%;
+            margin: 0 auto;
+            padding-inline: 5px;
+        }
+        .group_contact:hover{
+            background-color: #eee;
+        }
+        .rounded_checkbox{
+            border-radius: 50%;
+            width: 1.3em;
+            height: 1.3em;
+            background-color: #eee;
+        }
+        .g_contact_img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .g_contact_name{
+            padding-top: 4px;
+        }
+        .group_creation{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .modal-footer{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .group_creation input{
+            width: 100%;
+            margin-block: 10px;
+            border-radius: 5px;
+            border: 0;
+            line-height: 1.5;
+            padding: 5px 10px;
+            background-color: #eee;
+            outline: 0;
+            border: 0;
+            font-size: 12px;
+            font-family: Montserrat-Medium;
+        }
+        .group_creation_heading, .select_counter{
+            width: 30%;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-family: Montserrat-SemiBold;
+        }
+        .group_creation_heading{
+            width: 60%;
+            text-align: left;
+            color: #2e3192;
+        }
+        .groups_participants{
+            font-family: Montserrat-SemiBold;
+            font-size: 16px;
+            padding-top: 10px;
+        }
+        .selected_contacts_row{
+            height: 60%;
+        }
+        .selected_contacts_sec{
+            overflow-y: scroll;
+            height: 95% !important;
+            width: 100%;
+            margin-top: 5%;
+            padding-top: 20px;
+        }
+        .modal-footer .btn{
+            background-color: #eee;
+            font-family: Montserrat-Medium;
+            font-family: 12px;
+            margin-left: 10px;
+        }
+        .modal-footer .btn.group_create_btn{
+            background-color: #2e3192;
+            color: #fff;
+        }
+        .selected_contacts_sec{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .selected_person{
+            width: 21%;
+            height: 70px;
+            display: flex;
+            margin-block: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .selected_person h4{
+            text-overflow: ellipsis;
+            text-align: center;
+            margin-top: 3px;
+            margin-bottom: 0;
+            font-size: 12px !important;
+        }
+        .unselect_person{
+            font-size: 18px;
+            width: 15px;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2e3192;
+            color: #fff;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 2px;
+            position: absolute;
+            top: -20%;
+            right: 5%;
+        }
+        .selected_contacts_sec::-webkit-scrollbar{
+            z-index: 998;
+            background: transparent;
+            width: 6px !important;
+            padding-left: 10px;
+            margin-left: -10px !important;
+        }
+        .selected_contacts_sec::-webkit-scrollbar-button{
+            display: none;
+        }
+        .selected_contacts_sec::-webkit-scrollbar-thumb{
+            width: 100%;
+            background-color: #888;
+            border-radius: 30px;
+        }
+        /* Styling End */
+    </style>
+</head>
+<body>
+    <!-- Replace the Icon code with this code. ()-->
+    <div class="top_icon_box position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="assets/images/Top-Plus-Icon.png" alt="New Group">
+        <span title="Group" class="hover_tooltip group_tooltip">Create Group</span>
+    </div>
+    <!-- Add following code below where .profile_sec ends. -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content h-100">
+                <div class="container_box container ps-3 d-flex h-100">
+                    <div class="col-5 contact_list">
+                        <div class="row search_row pt-3">
+                            <div class="search_field model_search me-auto my-2">
+                                <form action="">
+                                    <i class="search_icon">
+                                        <img src="assets/images/Top-Line-Search-icon.png" alt="search" class="img-contain nonhover_img">
+                                    </i>
+                                    <input type="text" name="search" class="input-field" placeholder="Search Contacts">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="contact_row row px-0">
+                            <form action="" class="contact_name_from px-0">
+                                <div class="group_contact">
+                                    <input type="checkbox" name="contact" class="rounded_checkbox">
+                                    <div class="g_contact_details d-flex">
+                                        <div class="g_contact_img">
+                                            <img src="assets/images/01.png" alt="Group Contact Image"
+                                            class="img-fluid">
+                                        </div>
+                                        <span class="g_contact_name align-items-center sender_name px-1">
+                                            Regina Dickerson
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-7 selected_contacts text-center">
+                        <form action="" class="group_creation">
+                            <div class="row group_top d-flex justify-content-between align-items-center py-2">
+                                <p class="group_creation_heading">Creat a new group</p>
+                                <p class="select_counter">1 Selected</p>
+                            </div>
+                            <input type="text" name="groupname" placeholder="Group Name">
+                            <!-- <input type="text" name="group_description" placeholder="Group Description"> -->
+                            <div class="row selected_contacts_row">
+                                <h3 class="groups_participants sender_name">Groups Participants</h3>
+                                <div class="selected_contacts_sec row">
+                                    <div class="selected_person px-0">
+                                        <img src="assets/images/01.png" alt="Image">
+                                        <h4 class="sender_name">Regina Dickerson</h4>
+                                        <button class="unselect_person">&times;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer border-0 row d-flex justify-content-end">
+                                <button type="button" class="btn w-auto px-3 py-2 group_close_btn" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn w-auto px-3 py-2 group_create_btn">Create Group</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This code doesn't disturb any existing design. If you find anythign lacking, fell comfortable to talk me. I shall be available. -->
+</body>
+</html>

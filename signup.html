@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="loginstyle.css">
+    <title>Sign Up| </title>
+</head>
+<body>
+    <div class="wrapper conatiner-fluid">
+        <div class="row px-0 content_container ps-md-5 align-items-center justify-content-center">
+            <div class="form_container col-lg-5 col-md-7 col-sm-10 col-11 mx-md-0 mx-auto offset-lg-2">
+                <div class="form_img text-center pb-3">
+                    <img src="assets/images/Logo.png" alt="Logo_Img" class="img-fluid">
+                    <h1 class="page_title py-2">SECURE CHAT</h1>
+                </div>
+                <div class="loginform pt-4 text-center">
+                    <h3 class="form_heading">You must sign in / sign up to join.</h3>
+                    <form action="" class="form">
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon"><img src="assets/images/User-name-icon.png" alt="username_icon"></i>
+                            <input type="text" class="input-field" placeholder="First Name*" name="fname" required>
+                        </div>
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon">
+                                <img src="assets/images/User-name-icon.png" alt="username_icon">
+                            </i>
+                            <input type="text" class="input-field" placeholder="Last Name*" name="lname" required>
+                        </div>
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon">
+                                <img src="assets/images/mail_icon.png" alt="email_icon" style="width: 20px; opacity: 0.18;">
+                            </i>
+                            <input type="email" class="input-field" placeholder="Email Address*" name="email_address" required>
+                        </div>
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon">
+                                <img src="assets/images/phone-icon.png" alt="phone-icon" style="width: 20px; opacity: 0.7;">
+                            </i>
+                            <input type="tel" pattern="^\+92[0-9]{10}$" class="input-field" placeholder="Phone Number*" name="phone" required>
+                        </div>
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon"><img src="assets/images/Password-Icon.png" alt="password_icon"></i>
+                            <input type="password" class="input-field" placeholder="Password*" name="password" required>
+                        </div>
+                        <div class="field text-start my-4 mx-auto">
+                            <i class="input_icon"><img src="assets/images/Password-Icon.png" alt="password_icon"></i>
+                            <input type="password" class="input-field" placeholder="Retype the Password*" name="retypepassword" required>
+                        </div>
+                        <div class="field submit text-start my-4 mx-auto">
+                            <a href="innerscreen.html" target="_blank" style="text-decoration: none; color: #fff; padding-block: 10px;">Sign In</a>
+                        </div>
+                        <!-- <hr class="form_divider"> -->
+                        <div class="form_divider">
+                            <p>OR</p>
+                        </div>
+                        <div class="field submit text-center mt-4 mx-auto google_btn" style="padding-block: 7px;">
+                            <i class="input_icon google_icon"><img src="assets/images/Google-button-Icon.png" alt="Google Sign In"></i>
+                            <span class="input-field">Sign In with Google</span>
+                        </div>
+                        <p class="signup_text py-3">Already have an account?
+                            <a href="signin.html" class="signup_anchor">Signin</a>
+                            <!-- <a href="forgetpassword.html" class="forget_anchor">Forget Password?</a> -->
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="conatiner_img col-lg-6 col-md-5 col-sm-10 col-11 mx-md-0 mx-auto p-lg-5 p-md-3 p-5 d-flex align-items-center justify-content-center">
+                <img src="assets/images/Main-Screen-Image.png" alt="Main Screen Image" class="img-fluid">
+            </div>
+        </div>       
+    </div>
+</body>
+</html>
